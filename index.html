@@ -1,65 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanket Suresh | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanket Suresh • Portfolio</title>
+  <meta name="description" content="Portfolio of Sanket Suresh Basaragaon — CSE student, full-stack developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2300d4ff'/%3E%3Ctext x='32' y='39' font-size='28' text-anchor='middle' fill='white' font-family='Arial'%3ESS%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-    <header>
-        <h1>SANKET S B</h1>
-        <p>Full Stack Developer | AI & ML Enthusiast</p>
-    </header>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <a class="brand" href="#top">Sanket<span> Suresh</span></a>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#certs">Certificates</a>
+      <a href="#contact" class="cta">Contact</a>
     </nav>
+    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌗</button>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate full-stack developer with experience in building intelligent systems and web apps using Java, Python, AI, and Machine Learning. I love solving real-world problems through clean code and creative solutions.</p>
-    </section>
+  <!-- ===== Hero ===== -->
+  <main id="top" class="hero container">
+    <div class="hero__text">
+      <p class="eyebrow">Computer Science & Engineering • Bengaluru</p>
+      <h1>Hi, I’m <span class="grad">Sanket Suresh Basaragaon</span>.</h1>
+      <p class="sub">
+        I build full-stack web apps with clean UI and solid backends. I enjoy
+        turning ideas into fast, reliable applications.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn ghost" href="mailto:sanketsuresh000@gmail.com">Email me</a>
+      </div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/sanketsuresh" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/sanketsuresh" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://sanketsuresh.github.io/portfolio/" target="_blank" rel="noopener">Current Portfolio ↗</a>
+      </div>
+    </div>
+    <div class="hero__card glass">
+      <h3>Quick Info</h3>
+      <ul>
+        <li><strong>Based in:</strong> Bengaluru, Karnataka</li>
+        <li><strong>Email:</strong> <a href="mailto:sanketsuresh000@gmail.com">sanketsuresh000@gmail.com</a></li>
+        <li><strong>Open to:</strong> Internships • Freelance • Collaborations</li>
+      </ul>
+      <a class="btn full" href="https://drive.google.com/file/d/1bsDWJPjomy30ls_fprssbF7hvs8vh9mX/view?usp=drive_link" target="_blank" rel="noopener">Download Resume (PDF) ↗</a>
+    </div>
+  </main>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Java</li>
-            <li>Python</li>
-            <li>Machine Learning</li>
-            <li>Artificial Intelligence</li>
-            <li>MySQL</li>
-            <li>Web Development (HTML, CSS, JSP)</li>
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="section container">
+    <div class="section__head">
+      <h2>Featured Projects</h2>
+      <p class="muted">Live demos and repositories are one click away.</p>
+    </div>
+
+    <div class="grid cards">
+      <!-- Project 1: Food Delivery -->
+      <article class="card">
+        <div class="card__top">
+          <span class="badge">Java • JSP • MySQL</span>
+          <h3>Online Food Delivery Web App</h3>
+          <p>
+            Full-stack ordering system with user auth, menu, cart, orders, and admin dashboard.
+            Deployed locally with Apache Tomcat.
+          </p>
+        </div>
+        <ul class="stack">
+          <li>Java</li><li>JSP</li><li>MySQL</li><li>HTML/CSS</li><li>Apache Tomcat</li>
         </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>🍔 Food Delivery System (Java + JSP + MySQL)</h3>
-            <p>A complete online food ordering platform with user login, admin panel, and order tracking.</p>
-            <a href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank">View on GitHub</a>
+        <div class="card__links">
+          <a class="btn sm" href="https://fooddeliveryproje.netlify.app/" target="_blank" rel="noopener">Live Demo ↗</a>
+          <a class="btn sm ghost" href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank" rel="noopener">Repository ↗</a>
         </div>
-        <div class="project">
-            <h3>🎨 GenArtX - AI Image Generator</h3>
-            <p>An AI-powered image generation app using the MERN stack and OpenAI API.</p>
-            <a href="https://github.com/sanketsuresh/GenArtX" target="_blank">View on GitHub</a>
+      </article>
+
+      <!-- Project 2: URL Shortener -->
+      <article class="card">
+        <div class="card__top">
+          <span class="badge">MERN • TypeScript</span>
+          <h3>URL Shortener App</h3>
+          <p>
+            Shortens long URLs with custom codes and click tracking. Admin dashboard for analytics and user stats.
+          </p>
         </div>
-    </section>
+        <ul class="stack">
+          <li>React (TS)</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Mongoose</li>
+        </ul>
+        <div class="card__links">
+          <a class="btn sm" href="https://url-shortener-app-1756141441.netlify.app/" target="_blank" rel="noopener">Live Demo ↗</a>
+          <a class="btn sm ghost" href="https://github.com/sanketsuresh/url-shortener" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:sanketsuresh000@gmail.com">sanketsuresh000@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/sanketsuresh" target="_blank">github.com/sanketsuresh</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/sanketsuresh" target="_blank">linkedin.com/in/sanketsuresh</a></p>
-        <p><strong>Resume:</strong> <a href="https://drive.google.com/file/d/1lswclshMdfhBesu-_IUabpW-K_ercVnn/view?usp=sharing" target="_blank">View My Resume</a></p>
-    </section>
+      <!-- Project 3: AI Grievance Portal -->
+      <article class="card">
+        <div class="card__top">
+          <span class="badge">Next.js • MongoDB • Tailwind</span>
+          <h3>AI-Powered Grievance Redressal Portal</h3>
+          <p>
+            Citizens can file, track, and manage grievances. AI/NLP for sentiment, keyword extraction, auto-priority;
+            JWT-secured admin with real-time analytics.
+          </p>
+        </div>
+        <ul class="stack">
+          <li>Next.js</li><li>MongoDB</li><li>TailwindCSS</li><li>OpenAI GPT</li><li>JWT</li>
+        </ul>
+        <div class="card__links">
+          <a class="btn sm" href="https://gri-jade.vercel.app/" target="_blank" rel="noopener">Live Demo ↗</a>
+          <a class="btn sm ghost" href="https://github.com/sanketsuresh/COMPLAINT-RAISE" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Sanket Suresh Basaragaon. All rights reserved.</p>
-    </footer>
+  <!-- ===== Skills ===== -->
+  <section id="skills" class="section container">
+    <div class="section__head">
+      <h2>Technical Skills</h2>
+      <p class="muted">Tools and tech I use regularly.</p>
+    </div>
+    <ul class="chips">
+      <li>Python</li><li>JavaScript</li><li>HTML/CSS</li><li>SQL</li><li>C</li><li>Java</li>
+      <li>React.js</li><li>Node.js</li><li>Express</li><li>MongoDB</li>
+      <li>Docker</li><li>Git & GitHub</li><li>VS Code</li><li>Postman</li><li>Linux</li>
+      <li>Microservices</li><li>Jenkins</li><li>Agile (Scrum)</li><li>OpenCV</li><li>GCP</li>
+    </ul>
+  </section>
+
+  <!-- ===== Education ===== -->
+  <section id="education" class="section container">
+    <div class="section__head">
+      <h2>Education</h2>
+      <p class="muted">Core CS fundamentals with practical projects.</p>
+    </div>
+    <div class="timeline">
+      <article class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <h3>HKBK College of Engineering — B.E. in CSE</h3>
+          <p class="muted">Dec 2022 – May 2026 • Bengaluru, Karnataka</p>
+          <p class="small">
+            Relevant courses: Data Structures, Algorithm Analysis, DBMS, AI, Computer Networks,
+            Project Management, OOP with Java, Computer Architecture.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Certificates ===== -->
+  <section id="certs" class="section container">
+    <div class="section__head">
+      <h2>Certificates</h2>
+    </div>
+    <div class="grid certs">
+      <article class="card">
+        <h3>Java (Basic) — HackerRank</h3>
+        <p class="muted">Earned: June 9, 2025 • Credential ID: 648EC9E073A7</p>
+        <a class="btn sm" href="https://drive.google.com/file/d/1Ize95tUmNIHXrIQGYxDjmrzhGeQC3hnx/view?usp=drive_link" target="_blank" rel="noopener">View Certificate ↗</a>
+      </article>
+      <article class="card">
+        <h3>Python Programming — Microsoft & Skill India</h3>
+        <p class="muted">Completed: July 27, 2025 • 40 hours • NSDC validated</p>
+        <a class="btn sm" href="https://drive.google.com/file/d/1bsDWJPjomy30ls_fprssbF7hvs8vh9mX/view?usp=drive_link" target="_blank" rel="noopener">View Certificate ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section container contact">
+    <div class="section__head">
+      <h2>Say Hello</h2>
+      <p class="muted">Got an opportunity or idea? Let’s talk.</p>
+    </div>
+    <div class="contact__grid">
+      <a class="contact__card" href="mailto:sanketsuresh000@gmail.com">
+        <span>📧</span>
+        <strong>Email</strong>
+        <small>Click to compose</small>
+      </a>
+      <a class="contact__card" href="https://www.linkedin.com/in/sanketsuresh" target="_blank" rel="noopener">
+        <span>💼</span>
+        <strong>LinkedIn</strong>
+        <small>Open profile</small>
+      </a>
+      <a class="contact__card" href="https://github.com/sanketsuresh" target="_blank" rel="noopener">
+        <span>💻</span>
+        <strong>GitHub</strong>
+        <small>See projects</small>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Sanket Suresh Basaragaon • Built with ❤️ and vanilla CSS</p>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // theme toggle
+    const btn = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    if (stored) root.dataset.theme = stored;
+    btn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    // reduce motion respect
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.body.classList.add('reduce-motion');
+    }
+  </script>
 </body>
 </html>
