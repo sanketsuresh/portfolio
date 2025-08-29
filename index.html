@@ -1,173 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SANKET S B — Portfolio</title>
-  <meta name="description" content="SANKET S B — Web Developer & CSE Student" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANKET S B | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- animated background blobs -->
-  <div class="bg-blobs" aria-hidden="true">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
-  </div>
-
-  <header class="topbar">
-    <div class="brand">
-      <div class="monogram" aria-hidden="true">SS</div>
-      <div class="name">SANKET S B</div>
-    </div>
-    <nav class="topnav" aria-label="Main navigation">
+  <!-- HEADER -->
+  <header>
+    <h1>SANKET S B</h1>
+    <nav>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="https://github.com/sanketsuresh" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/sanketsuresh" target="_blank">GitHub</a>
     </nav>
-    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌗</button>
   </header>
 
-  <main class="hero">
-    <section class="hero-left">
-      <p class="tag">Web Developer • CSE Student</p>
-      <h1 class="headline">Hi — I’m <span class="accent">SANKET</span></h1>
-      <p class="lead">I build clean, responsive web apps. Minimal code, polished UI.</p>
-
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:sanketsuresh000@gmail.com">Hire Me</a>
-
-        <!-- direct-download Drive link (file id used) -->
-        <a class="btn ghost" id="downloadResume"
-           href="https://drive.google.com/uc?export=download&id=1lswclshMdfhBesu-_IUabpW-K_ercVnn"
-           target="_blank" rel="noopener">Download Resume</a>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Hi, I'm <span>Sanket</span></h2>
+      <p>Web Developer | CSE Student</p>
+      <div class="buttons">
+        <a href="mailto:sanketsuresh000@gmail.com" class="btn primary">Hire Me</a>
+        <a href="https://drive.google.com/uc?export=download&id=1lswclshMdfhBesu-_IUabpW-K_ercVnn"
+           target="_blank" class="btn secondary">Download Resume</a>
       </div>
+    </div>
+  </section>
 
-      <div class="socials" aria-hidden="false">
-        <a href="https://github.com/sanketsuresh" target="_blank" rel="noopener" title="GitHub">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.65.5.5 5.7.5 12.1c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7.7 2.1 1.1.2-.8.7-1.3 1.2-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.4-2.3 1.1-3.1-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .9.8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2.1-1.2 3-.9 3-.9.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3.1 0 4.5-2.8 5.5-5.4 5.8.7.6 1.4 1.7 1.4 3.4v5c0 .3.2.6.8.5 4.7-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/sanketsuresh" target="_blank" rel="noopener" title="LinkedIn">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8h4.45v16H.24V8zM9 8h4.27v2.18h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.28 2.95 5.28 6.79V24H17.6v-7.58c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.96-2.9 4v7.72H9V8z"/></svg>
-        </a>
-      </div>
-    </section>
-
-    <aside class="hero-right" aria-hidden="true">
-      <div class="card glass">
-        <div class="avatar-ring">
-          <div class="avatar">S</div>
-          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
-            <defs>
-              <linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c4dff"/></linearGradient>
-            </defs>
-            <circle cx="60" cy="60" r="44" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" fill="none"></circle>
-          </svg>
-        </div>
-        <h4 class="card-title">SANKET S B</h4>
-        <p class="card-sub">Front-end & Web apps</p>
-        <div class="mini-links">
-          <a href="https://github.com/sanketsuresh" target="_blank" rel="noopener">GitHub</a>
-          <a href="mailto:sanketsuresh000@gmail.com">Email</a>
-        </div>
-      </div>
-    </aside>
-  </main>
-
-  <!-- Projects -->
+  <!-- PROJECTS -->
   <section id="projects" class="section">
-    <div class="section-head">
-      <h3>Selected Projects</h3>
-      <p class="small muted">Brief — click to view</p>
-    </div>
-
-    <div class="grid projects-grid">
-      <article class="proj">
-        <div class="proj-meta">
-          <div class="proj-title">Food Delivery App</div>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank" rel="noopener">Repo</a>
-        </div>
-      </article>
-
-      <article class="proj">
-        <div class="proj-meta">
-          <div class="proj-title">URL Shortener</div>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/sanketsuresh/url-shortener" target="_blank" rel="noopener">Repo</a>
-        </div>
-      </article>
-
-      <article class="proj">
-        <div class="proj-meta">
-          <div class="proj-title">AI Grievance Portal</div>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/sanketsuresh/COMPLAINT-RAISE" target="_blank" rel="noopener">Repo</a>
-        </div>
-      </article>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Food Delivery App</h3>
+        <a href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank">View Project</a>
+      </div>
+      <div class="card">
+        <h3>URL Shortener</h3>
+        <a href="https://github.com/sanketsuresh/url-shortener" target="_blank">View Project</a>
+      </div>
+      <div class="card">
+        <h3>AI Grievance Portal</h3>
+        <a href="https://github.com/sanketsuresh/COMPLAINT-RAISE" target="_blank">View Project</a>
+      </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact" class="section contact">
-    <div class="section-head">
-      <h3>Contact</h3>
-      <p class="small muted">Say hi — short & simple</p>
-    </div>
-
-    <div class="contact-row">
-      <a class="contact-card" href="mailto:sanketsuresh000@gmail.com">
-        <div class="ico">✉️</div>
-        <div>
-          <div class="label">Email</div>
-          <div class="tiny">sanketsuresh000@gmail.com</div>
-        </div>
-      </a>
-
-      <a class="contact-card" href="https://github.com/sanketsuresh" target="_blank" rel="noopener">
-        <div class="ico">💻</div>
-        <div>
-          <div class="label">GitHub</div>
-          <div class="tiny">@sanketsuresh</div>
-        </div>
-      </a>
-    </div>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:sanketsuresh000@gmail.com">sanketsuresh000@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/sanketsuresh" target="_blank">LinkedIn</a> | 
+       <a href="https://github.com/sanketsuresh" target="_blank">GitHub</a></p>
   </section>
 
-  <footer class="footer">
-    <div>© <span id="year"></span> SANKET S B</div>
+  <footer>
+    <p>© 2025 SANKET S B</p>
   </footer>
-
-  <script>
-    // set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // theme toggle (dark/light)
-    const btn = document.getElementById('themeToggle');
-    const root = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved) root.dataset.theme = saved;
-    btn.addEventListener('click', () => {
-      const next = root.dataset.theme === 'light' ? '' : 'light';
-      root.dataset.theme = next;
-      localStorage.setItem('theme', next);
-    });
-
-    // subtle tilt on hero card (mouse)
-    const card = document.querySelector('.hero-right .card');
-    if (card) {
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left - r.width/2) / r.width;
-        const y = (e.clientY - r.top - r.height/2) / r.height;
-        card.style.transform = `rotateX(${ -y * 6 }deg) rotateY(${ x * 8 }deg) translateZ(6px)`;
-      });
-      card.addEventListener('mouseleave', () => card.style.transform = '');
-    }
-  </script>
 </body>
 </html>
