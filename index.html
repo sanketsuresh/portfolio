@@ -1,105 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SANKET S B | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANKET S B | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <h1>SANKET S B</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
-      <a href="https://drive.google.com/file/d/1B3TkBKzx-igymnt8qMtO1jkfZxDL0rOL/view?usp=sharing" class="resume" target="_blank">Resume</a>
-    </nav>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Hi, I'm <span>Sanket</span></h2>
-    <p>Full Stack Web Developer & Data Analyst | CSE Student</p>
-    <div class="buttons">
-      <a href="mailto:sanketsuresh000@gmail.com" class="btn primary">Hire Me</a>
-      <a href="https://drive.google.com/file/d/1bgc5LCjjRQnWV-XYFhvkeyZhCBtD82oy/view?usp=sharing" class="btn secondary" target="_blank">Download Resume</a>
+<!-- ambient trace canvas background -->
+<canvas id="board-bg"></canvas>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <span class="led" id="powerLed"></span>
+    <h1>SANKET<span>_S_B</span></h1>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="siteNav">
+    <a href="#about"><em>U1</em>About</a>
+    <a href="#skills"><em>U2</em>Skills</a>
+    <a href="#projects"><em>U3</em>Projects</a>
+    <a href="#certificates"><em>U4</em>Certs</a>
+    <a href="#contact"><em>U5</em>Contact</a>
+    <a href="https://drive.google.com/file/d/1B3TkBKzx-igymnt8qMtO1jkfZxDL0rOL/view?usp=sharing" class="resume" target="_blank" rel="noopener">Resume ↗</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="chip" id="heroChip">
+    <div class="pins pins-top"></div>
+    <div class="pins pins-bottom"></div>
+    <div class="pins pins-left"></div>
+    <div class="pins pins-right"></div>
+
+    <div class="chip-inner">
+      <p class="eyebrow">// booting profile.exe</p>
+      <h2>Hi, I'm <span class="glow" id="typedName">Sanket</span></h2>
+      <p class="role" id="typedRole"></p>
+      <div class="buttons">
+        <a href="mailto:sanketsuresh000@gmail.com" class="btn primary">Hire Me</a>
+        <a href="https://drive.google.com/file/d/1bgc5LCjjRQnWV-XYFhvkeyZhCBtD82oy/view?usp=sharing" class="btn secondary" target="_blank" rel="noopener">Download Resume</a>
+      </div>
+      <p class="status-line"><span class="dot"></span> Status: Open to opportunities</p>
     </div>
-  </section>
+  </div>
+  <div class="scroll-cue">scroll <span>↓</span></div>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I am a Computer Science student from Bengaluru passionate about creating modern, responsive web applications using clean code and innovative design.</p>
-  </section>
+<!-- ABOUT -->
+<section id="about" class="section board-panel reveal">
+  <span class="tag">U1 · ABOUT.CFG</span>
+  <h2>About Me</h2>
+  <p class="lede">I am a Computer Science student from Bengaluru passionate about creating modern, responsive web applications using clean code and innovative design. I like turning messy problems into working systems &mdash; whether that's a UI, a database, or a dataset.</p>
+</section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>HTML</span> <span>CSS</span> <span>SQL</span>   <span>JavaScript</span>  <span>React</span>
-      <span>Core Java </span> <span>Adavance Java </span> <span>MongoDB(basic)</span> <span>Python(basic)</span>
-    </div>
-  </section>
+<!-- SKILLS -->
+<section id="skills" class="section board-panel reveal">
+  <span class="tag">U2 · COMPONENT.LIST</span>
+  <h2>Skills</h2>
+  <div class="skills">
+    <span class="chip-tag" style="--i:0">HTML</span>
+    <span class="chip-tag" style="--i:1">CSS</span>
+    <span class="chip-tag" style="--i:2">JavaScript</span>
+    <span class="chip-tag" style="--i:3">SQL</span>
+    <span class="chip-tag" style="--i:4">React</span>
+    <span class="chip-tag" style="--i:5">Core Java</span>
+    <span class="chip-tag" style="--i:6">Advanced Java</span>
+    <span class="chip-tag" style="--i:7">MongoDB <small>(basic)</small></span>
+    <span class="chip-tag" style="--i:8">Python <small>(basic)</small></span>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
+<!-- PROJECTS -->
+<section id="projects" class="section board-panel reveal">
+  <span class="tag">U3 · BUILD.LOG</span>
+  <h2>Projects</h2>
+  <div class="projects tilt-grid">
+    <div class="card tilt-card">
+      <div class="card-face">
+        <span class="card-index">01</span>
         <h3>Food Delivery App</h3>
         <p>Online food ordering system with user authentication and admin panel.</p>
-        <a href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank">View Project</a>
+        <a href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank" rel="noopener">View Project ↗</a>
       </div>
-      <div class="card">
+    </div>
+    <div class="card tilt-card">
+      <div class="card-face">
+        <span class="card-index">02</span>
         <h3>URL Shortener</h3>
         <p>Custom URL shortening app with analytics and link management.</p>
-        <a href="https://github.com/sanketsuresh/url-shortener" target="_blank">View Project</a>
+        <a href="https://github.com/sanketsuresh/url-shortener" target="_blank" rel="noopener">View Project ↗</a>
       </div>
-      <div class="card">
+    </div>
+    <div class="card tilt-card">
+      <div class="card-face">
+        <span class="card-index">03</span>
         <h3>AI Grievance Portal</h3>
         <p>AI-powered platform for filing and tracking complaints with NLP analysis.</p>
-        <a href="https://github.com/sanketsuresh/COMPLAINT-RAISE" target="_blank">View Project</a>
+        <a href="https://github.com/sanketsuresh/COMPLAINT-RAISE" target="_blank" rel="noopener">View Project ↗</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CERTIFICATES -->
-  <section id="certificates" class="section">
-    <h2>Certificates</h2>
-    <div class="certs">
-      <div class="card">
-        <h3>Java (Basic) – HackerRank</h3>
-        <a href="https://drive.google.com/file/d/1bsDWJPjomy30ls_fprssbF7hvs8vh9mX/view?usp=drivesdk" target="_blank">View Certificate</a>
+<!-- CERTIFICATES -->
+<section id="certificates" class="section board-panel reveal">
+  <span class="tag">U4 · CREDENTIALS.DAT</span>
+  <h2>Certificates</h2>
+  <div class="certs tilt-grid">
+    <div class="card tilt-card">
+      <div class="card-face">
+        <span class="card-index">C1</span>
+        <h3>Java (Basic)</h3>
+        <p class="issuer">HackerRank</p>
+        <a href="https://drive.google.com/file/d/1bsDWJPjomy30ls_fprssbF7hvs8vh9mX/view?usp=drivesdk" target="_blank" rel="noopener">View Certificate ↗</a>
       </div>
-      <div class="card">
-        <h3>Python Programming – Microsoft</h3>
-        <a href="https://drive.google.com/file/d/1Ize95tUmNIHXrIQGYxDjmrzhGeQC3hnx/view?usp=drivesdk" target="_blank">View Certificate</a>
-      </div>
-      <div class="card">
-        <h3> Data Structures and Algorithms using Java – NPTEL (IIT Kharagpur)</h3>
-        <a href="https://drive.google.com/file/d/1wBdAn38QJxsXfgnZL5AYD4jf7AozeGeT/view?usp=sharing">view Certificate</a>
     </div>
-  </section>
+    <div class="card tilt-card">
+      <div class="card-face">
+        <span class="card-index">C2</span>
+        <h3>Python Programming</h3>
+        <p class="issuer">Microsoft</p>
+        <a href="https://drive.google.com/file/d/1Ize95tUmNIHXrIQGYxDjmrzhGeQC3hnx/view?usp=drivesdk" target="_blank" rel="noopener">View Certificate ↗</a>
+      </div>
+    </div>
+    <div class="card tilt-card">
+      <div class="card-face">
+        <span class="card-index">C3</span>
+        <h3>Data Structures &amp; Algorithms using Java</h3>
+        <p class="issuer">NPTEL &middot; IIT Kharagpur</p>
+        <a href="https://drive.google.com/file/d/1wBdAn38QJxsXfgnZL5AYD4jf7AozeGeT/view?usp=sharing" target="_blank" rel="noopener">View Certificate ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section contact">
-    <h2>Contact</h2>
-    <p><strong>📞 Phone:</strong> <a href="tel:+917411178329">+91 74111 78329</a></p>
-    <p><strong>📧 Email:</strong> <a href="mailto:sanketsuresh000@gmail.com">sanketsuresh000@gmail.com</a></p>
-    <p><strong>📍 Location:</strong> <a href="https://goo.gl/maps/dcErhF4d6V6xe9nr6" target="_blank">Bengaluru, India</a></p>
-    <p>
-      <a href="https://github.com/sanketsuresh" target="_blank">GitHub</a> |
-      <a href="https://www.linkedin.com/in/sanketsuresh" target="_blank">LinkedIn</a>
-    </p>
-  </section>
+<!-- CONTACT -->
+<section id="contact" class="section board-panel reveal contact">
+  <span class="tag">U5 · CONTACT.INIT</span>
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <a class="contact-item" href="tel:+917411178329">
+      <span class="ci-label">PHONE</span>
+      <span class="ci-value">+91 74111 78329</span>
+    </a>
+    <a class="contact-item" href="mailto:sanketsuresh000@gmail.com">
+      <span class="ci-label">EMAIL</span>
+      <span class="ci-value">sanketsuresh000@gmail.com</span>
+    </a>
+    <a class="contact-item" href="https://goo.gl/maps/dcErhF4d6V6xe9nr6" target="_blank" rel="noopener">
+      <span class="ci-label">LOCATION</span>
+      <span class="ci-value">Bengaluru, India</span>
+    </a>
+  </div>
+  <div class="social-row">
+    <a href="https://github.com/sanketsuresh" target="_blank" rel="noopener">GitHub</a>
+    <span>·</span>
+    <a href="https://www.linkedin.com/in/sanketsuresh" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
 
-  <footer>
-    <p> SANKET S B  </p>
-  </footer>
+<footer>
+  <p>SANKET S B &nbsp;&mdash;&nbsp; <span class="footer-tag">built with solder &amp; semicolons</span></p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
