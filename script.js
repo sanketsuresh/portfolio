@@ -4,6 +4,120 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // =====================================================
+// Set data-text for glitch heading effect
+// =====================================================
+document.querySelectorAll('.section h2').forEach(h => h.setAttribute('data-text', h.textContent));
+
+// =====================================================
+// Boot sequence splash
+// =====================================================
+const bootScreen = document.getElementById('bootScreen');
+const bootLog = document.getElementById('bootLog');
+const bootSkip = document.getElementById('bootSkip');
+
+const bootLines = [
+  'INITIALIZING SANKET_OS v2.6 ...',
+  'CHECKING MEMORY .......... OK',
+  'MOUNTING SKILLS.DLL ...... OK',
+  'LOADING PROJECTS[] ....... OK',
+  'LINKING EDUCATION.LOG .... OK',
+  'ESTABLISHING UPLINK ...... OK',
+  '> WELCOME_'
+];
+
+function finishBoot(){
+  bootScreen.classList.add('hidden');
+  setTimeout(() => bootScreen.remove(), 700);
+}
+
+if(prefersReducedMotion || sessionStorage.getItem('bootSeen')){
+  bootScreen.remove();
+} else {
+  sessionStorage.setItem('bootSeen', '1');
+  let lineIdx = 0;
+  function nextLine(){
+    if(lineIdx < bootLines.length){
+      const p = document.createElement('div');
+      p.textContent = bootLines[lineIdx];
+      if(bootLines[lineIdx].includes('OK')) p.classList.add('ok');
+      bootLog.appendChild(p);
+      lineIdx++;
+      setTimeout(nextLine, 260);
+    } else {
+      setTimeout(finishBoot, 500);
+    }
+  }
+  setTimeout(nextLine, 300);
+  bootSkip.addEventListener('click', finishBoot);
+}
+
+// =====================================================
+// Custom cursor
+// =====================================================
+const isFinePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(isFinePointer && !prefersReducedMotion){
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+  });
+  function ringLoop(){
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(ringLoop);
+  }
+  ringLoop();
+  document.querySelectorAll('a, button, .tilt-card, .chip-tag, .contact-item').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('active'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('active'));
+  });
+}
+
+// =====================================================
+// Scroll power meter + nav active section
+// =====================================================
+const pmFill = document.getElementById('pmFill');
+const pmPct = document.getElementById('pmPct');
+function updatePowerMeter(){
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 0;
+  if(pmFill){ pmFill.style.height = pct + '%'; }
+  if(pmPct){ pmPct.textContent = pct + '%'; }
+}
+window.addEventListener('scroll', updatePowerMeter, { passive:true });
+updatePowerMeter();
+
+const navLinks = document.querySelectorAll('nav a[data-section]');
+const trackedSections = document.querySelectorAll('section[id]');
+if('IntersectionObserver' in window){
+  const navIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        navLinks.forEach(l => l.classList.remove('active'));
+        const match = document.querySelector(`nav a[data-section="${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  trackedSections.forEach(s => navIo.observe(s));
+}
+
+// =====================================================
+// Panel spotlight (mouse-follow light on hover)
+// =====================================================
+document.querySelectorAll('.board-panel').forEach(panel => {
+  panel.addEventListener('mousemove', (e) => {
+    const r = panel.getBoundingClientRect();
+    panel.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    panel.style.setProperty('--my', `${e.clientY - r.top}px`);
+  });
+});
+
+// =====================================================
 // Mobile nav toggle
 // =====================================================
 const navToggle = document.getElementById('navToggle');
