@@ -59,6 +59,118 @@ header, .hero, .section, footer{ position:relative; z-index:1; }
 a{ color: inherit; }
 
 /* =========================================================
+   BOOT SEQUENCE SPLASH
+========================================================= */
+#bootScreen{
+  position:fixed; inset:0;
+  background: #030b08;
+  z-index: 999;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 26px;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+#bootScreen.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
+.boot-log{
+  font-family: var(--font-display);
+  color: var(--trace);
+  font-size: 0.95rem;
+  line-height:1.9;
+  min-height: 220px;
+  width: min(90vw, 480px);
+  white-space: pre-wrap;
+}
+.boot-log .ok{ color: var(--copper-bright); }
+#bootSkip{
+  font-family: var(--font-display);
+  background:none;
+  border: 1px solid var(--trace-dim);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor:pointer;
+  font-size:0.78rem;
+  transition: border-color .2s ease, color .2s ease;
+}
+#bootSkip:hover{ border-color: var(--trace); color: var(--trace); }
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+@media (hover:hover) and (pointer:fine){
+  body{ cursor:none; }
+  .cursor-dot, .cursor-ring{
+    position:fixed;
+    top:0; left:0;
+    border-radius:50%;
+    pointer-events:none;
+    z-index: 998;
+    transform: translate(-50%,-50%);
+    will-change: transform;
+  }
+  .cursor-dot{
+    width:6px; height:6px;
+    background: var(--copper-bright);
+    box-shadow: 0 0 8px var(--copper-bright);
+  }
+  .cursor-ring{
+    width:34px; height:34px;
+    border: 1px solid var(--trace);
+    transition: width .2s ease, height .2s ease, border-color .2s ease, opacity .2s ease;
+    opacity:0.6;
+  }
+  .cursor-ring.active{
+    width:52px; height:52px;
+    border-color: var(--copper-bright);
+    opacity:1;
+  }
+}
+
+/* =========================================================
+   SCROLL POWER METER
+========================================================= */
+.power-meter{
+  position:fixed;
+  left:16px;
+  top:50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  font-family: var(--font-display);
+}
+.pm-label, .pm-pct{
+  font-size:0.62rem;
+  letter-spacing:1.5px;
+  color: var(--copper);
+}
+.pm-track{
+  width:4px;
+  height: 140px;
+  background: rgba(201,146,43,0.15);
+  border-radius:3px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+}
+.pm-fill{
+  width:100%;
+  height:0%;
+  background: linear-gradient(180deg, var(--copper-bright), var(--trace));
+  box-shadow: 0 0 8px rgba(61,220,132,0.6);
+  transition: height .1s linear;
+}
+@media (max-width: 860px){ .power-meter{ display:none; } }
+
+/* nav active section highlight */
+nav a.active{ color: var(--copper-bright); }
+nav a.active em{ color: var(--trace); opacity:1; }
+
+/* =========================================================
    HEADER
 ========================================================= */
 header{
@@ -289,6 +401,7 @@ nav a.resume:hover{ color:#0c1a12; filter:brightness(1.1); }
 }
 .board-panel{
   position:relative;
+  overflow:hidden;
 }
 .board-panel::before{
   content:"";
@@ -297,7 +410,19 @@ nav a.resume:hover{ color:#0c1a12; filter:brightness(1.1); }
   height:1px;
   background: linear-gradient(90deg, transparent, var(--copper), transparent);
   opacity:0.5;
+  z-index:2;
 }
+.board-panel::after{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(500px circle at var(--mx,50%) var(--my,50%), rgba(61,220,132,0.10), transparent 60%);
+  opacity:0;
+  transition: opacity .4s ease;
+  pointer-events:none;
+  z-index:0;
+}
+.board-panel:hover::after{ opacity:1; }
+.section > *{ position:relative; z-index:1; }
 .tag{
   font-family: var(--font-display);
   font-size:0.72rem;
@@ -315,7 +440,30 @@ nav a.resume:hover{ color:#0c1a12; filter:brightness(1.1); }
   margin-bottom:22px;
   color: var(--silk);
   font-weight:700;
+  position:relative;
+  display:inline-block;
+  cursor:default;
 }
+.section h2::after{
+  content: attr(data-text);
+  position:absolute;
+  left:2px; top:0;
+  color: var(--trace);
+  opacity:0;
+  clip-path: inset(0 0 0 0);
+  z-index:-1;
+}
+.section h2:hover::after{
+  animation: glitch 0.4s steps(2,end) 1;
+  opacity:0.7;
+}
+@keyframes glitch{
+  0%{ clip-path: inset(0 0 90% 0); transform: translate(2px,-2px); opacity:0.7; }
+  30%{ clip-path: inset(60% 0 10% 0); transform: translate(-2px,1px); }
+  60%{ clip-path: inset(20% 0 60% 0); transform: translate(2px,2px); }
+  100%{ clip-path: inset(0 0 0 0); transform: translate(0,0); opacity:0; }
+}
+
 .lede{
   color: var(--muted);
   font-size:1.08rem;
@@ -334,12 +482,64 @@ nav a.resume:hover{ color:#0c1a12; filter:brightness(1.1); }
 }
 
 /* =========================================================
+   TIMELINE (education / experience)
+========================================================= */
+.timeline{ display:flex; flex-direction:column; gap:18px; }
+.timeline-item{
+  background: var(--bg-panel);
+  border: 1px solid rgba(201,146,43,0.3);
+  border-left: 3px solid var(--copper);
+  border-radius: 8px;
+  padding: 20px 24px;
+  text-align:left;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.timeline-item:hover{
+  transform: translateX(4px);
+  border-left-color: var(--trace);
+}
+.timeline-item h3{
+  color: var(--silk);
+  font-size:1.1rem;
+  font-family: var(--font-body);
+  font-weight:600;
+  margin: 6px 0 6px;
+}
+.timeline-item p{ color: var(--muted); font-size:0.92rem; }
+.timeline-item .issuer{ color: var(--copper-bright); }
+
+.mini-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin: 10px 0 14px;
+}
+.mini-tags span{
+  font-family: var(--font-display);
+  font-size:0.72rem;
+  color: var(--trace);
+  border: 1px solid var(--trace-dim);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+/* =========================================================
    SKILLS
 ========================================================= */
+.skill-group-label{
+  font-family: var(--font-display);
+  font-size:0.75rem;
+  color: var(--copper);
+  letter-spacing:1.5px;
+  text-align:left;
+  margin: 22px 0 10px;
+}
+.skill-group-label:first-of-type{ margin-top:0; }
 .skills{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
+  margin-bottom: 6px;
 }
 .chip-tag{
   background: var(--bg-panel);
@@ -368,6 +568,13 @@ nav a.resume:hover{ color:#0c1a12; filter:brightness(1.1); }
   gap:24px;
   perspective: 1200px;
 }
+@property --angle{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes rotateBorder{ to{ --angle: 360deg; } }
+
 .tilt-card{
   background: linear-gradient(160deg, var(--bg-panel), #081a13);
   border: 1px solid rgba(201,146,43,0.3);
@@ -375,7 +582,24 @@ nav a.resume:hover{ color:#0c1a12; filter:brightness(1.1); }
   transform-style: preserve-3d;
   transition: transform .15s ease, box-shadow .3s ease, border-color .3s ease;
   will-change: transform;
+  position:relative;
 }
+.tilt-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  padding:1px;
+  background: conic-gradient(from var(--angle,0deg), transparent 0 55%, var(--trace), var(--copper-bright), transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity:0;
+  transition: opacity .3s ease;
+  animation: rotateBorder 2.6s linear infinite paused;
+  pointer-events:none;
+}
+.tilt-card:hover::before{ opacity:1; animation-play-state: running; }
 .tilt-card:hover{
   border-color: var(--copper);
   box-shadow: 0 24px 40px -18px rgba(61,220,132,0.35);
