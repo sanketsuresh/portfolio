@@ -10,6 +10,23 @@
 </head>
 <body>
 
+<!-- BOOT SEQUENCE SPLASH -->
+<div id="bootScreen">
+  <div class="boot-log" id="bootLog"></div>
+  <button id="bootSkip">skip &rarr;</button>
+</div>
+
+<!-- custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- scroll power meter -->
+<div class="power-meter">
+  <span class="pm-label">PWR</span>
+  <div class="pm-track"><div class="pm-fill" id="pmFill"></div></div>
+  <span class="pm-pct" id="pmPct">0%</span>
+</div>
+
 <!-- ambient trace canvas background -->
 <canvas id="board-bg"></canvas>
 
@@ -23,11 +40,14 @@
     <span></span><span></span><span></span>
   </button>
   <nav id="siteNav">
-    <a href="#about"><em>U1</em>About</a>
-    <a href="#skills"><em>U2</em>Skills</a>
-    <a href="#projects"><em>U3</em>Projects</a>
-    <a href="#certificates"><em>U4</em>Certs</a>
-    <a href="#contact"><em>U5</em>Contact</a>
+    <a href="#about" data-section="about"><em>U1</em>About</a>
+    <a href="#education" data-section="education"><em>U2</em>Education</a>
+    <a href="#experience" data-section="experience"><em>U3</em>Experience</a>
+    <a href="#skills" data-section="skills"><em>U4</em>Skills</a>
+    <a href="#projects" data-section="projects"><em>U5</em>Projects</a>
+    <a href="#certificates" data-section="certificates"><em>U6</em>Certs</a>
+    <a href="#achievements" data-section="achievements"><em>U7</em>Achievements</a>
+    <a href="#contact" data-section="contact"><em>U8</em>Contact</a>
     <a href="https://drive.google.com/file/d/1B3TkBKzx-igymnt8qMtO1jkfZxDL0rOL/view?usp=sharing" class="resume" target="_blank" rel="noopener">Resume ↗</a>
   </nav>
 </header>
@@ -61,26 +81,68 @@
   <p class="lede">I am a Computer Science student from Bengaluru passionate about creating modern, responsive web applications using clean code and innovative design. I like turning messy problems into working systems &mdash; whether that's a UI, a database, or a dataset.</p>
 </section>
 
+<!-- EDUCATION -->
+<section id="education" class="section board-panel reveal">
+  <span class="tag">U2 · EDUCATION.LOG</span>
+  <h2>Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="card-index">2022 &ndash; 2026</span>
+      <h3>B.E. in Computer Science &amp; Engineering</h3>
+      <p class="issuer">HKBK College of Engineering, Bengaluru &middot; affiliated to VTU, Belagavi</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section board-panel reveal">
+  <span class="tag">U3 · EXPERIENCE.LOG</span>
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="card-index">INTERN</span>
+      <h3>Android App Development Intern &mdash; Mind Matrix</h3>
+      <p>Built Android applications with Generative AI features integrated, using Kotlin.</p>
+      <div class="mini-tags">
+        <span>Kotlin</span>
+        <span>Android</span>
+        <span>Generative AI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills" class="section board-panel reveal">
-  <span class="tag">U2 · COMPONENT.LIST</span>
+  <span class="tag">U4 · COMPONENT.LIST</span>
   <h2>Skills</h2>
+
+  <p class="skill-group-label">Languages</p>
   <div class="skills">
-    <span class="chip-tag" style="--i:0">HTML</span>
-    <span class="chip-tag" style="--i:1">CSS</span>
+    <span class="chip-tag" style="--i:0">Java</span>
+    <span class="chip-tag" style="--i:1">Python <small>(basic)</small></span>
     <span class="chip-tag" style="--i:2">JavaScript</span>
-    <span class="chip-tag" style="--i:3">SQL</span>
-    <span class="chip-tag" style="--i:4">React</span>
-    <span class="chip-tag" style="--i:5">Core Java</span>
-    <span class="chip-tag" style="--i:6">Advanced Java</span>
-    <span class="chip-tag" style="--i:7">MongoDB <small>(basic)</small></span>
-    <span class="chip-tag" style="--i:8">Python <small>(basic)</small></span>
+    <span class="chip-tag" style="--i:3">Kotlin</span>
+    <span class="chip-tag" style="--i:4">SQL</span>
+  </div>
+
+  <p class="skill-group-label">Frontend</p>
+  <div class="skills">
+    <span class="chip-tag" style="--i:5">HTML</span>
+    <span class="chip-tag" style="--i:6">CSS</span>
+    <span class="chip-tag" style="--i:7">React</span>
+  </div>
+
+  <p class="skill-group-label">Backend &amp; Data</p>
+  <div class="skills">
+    <span class="chip-tag" style="--i:8">MongoDB <small>(basic)</small></span>
+    <span class="chip-tag" style="--i:9">Data Analysis</span>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="section board-panel reveal">
-  <span class="tag">U3 · BUILD.LOG</span>
+  <span class="tag">U5 · BUILD.LOG</span>
   <h2>Projects</h2>
   <div class="projects tilt-grid">
     <div class="card tilt-card">
@@ -88,6 +150,9 @@
         <span class="card-index">01</span>
         <h3>Food Delivery App</h3>
         <p>Online food ordering system with user authentication and admin panel.</p>
+        <div class="mini-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Java</span><span>MySQL</span>
+        </div>
         <a href="https://github.com/sanketsuresh/FoodDeliveryProject" target="_blank" rel="noopener">View Project ↗</a>
       </div>
     </div>
@@ -96,6 +161,9 @@
         <span class="card-index">02</span>
         <h3>URL Shortener</h3>
         <p>Custom URL shortening app with analytics and link management.</p>
+        <div class="mini-tags">
+          <span>JavaScript</span><span>Node.js</span><span>MongoDB</span>
+        </div>
         <a href="https://github.com/sanketsuresh/url-shortener" target="_blank" rel="noopener">View Project ↗</a>
       </div>
     </div>
@@ -104,6 +172,9 @@
         <span class="card-index">03</span>
         <h3>AI Grievance Portal</h3>
         <p>AI-powered platform for filing and tracking complaints with NLP analysis.</p>
+        <div class="mini-tags">
+          <span>Python</span><span>NLP</span><span>React</span><span>MongoDB</span>
+        </div>
         <a href="https://github.com/sanketsuresh/COMPLAINT-RAISE" target="_blank" rel="noopener">View Project ↗</a>
       </div>
     </div>
@@ -112,7 +183,7 @@
 
 <!-- CERTIFICATES -->
 <section id="certificates" class="section board-panel reveal">
-  <span class="tag">U4 · CREDENTIALS.DAT</span>
+  <span class="tag">U6 · CREDENTIALS.DAT</span>
   <h2>Certificates</h2>
   <div class="certs tilt-grid">
     <div class="card tilt-card">
@@ -142,9 +213,21 @@
   </div>
 </section>
 
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="section board-panel reveal">
+  <span class="tag">U7 · ACHIEVEMENTS.LOG</span>
+  <h2>Achievements &amp; Coding Profiles</h2>
+  <div class="contact-grid">
+    <a class="contact-item" href="https://leetcode.com/u/sanketsuresh/" target="_blank" rel="noopener">
+      <span class="ci-label">LEETCODE</span>
+      <span class="ci-value">u/sanketsuresh &nbsp;↗</span>
+    </a>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="section board-panel reveal contact">
-  <span class="tag">U5 · CONTACT.INIT</span>
+  <span class="tag">U8 · CONTACT.INIT</span>
   <h2>Contact</h2>
   <div class="contact-grid">
     <a class="contact-item" href="tel:+917411178329">
